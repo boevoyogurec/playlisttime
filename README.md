@@ -38,15 +38,10 @@ def parse_playlist(playlist):
 
 def get_duration(playlist, n):
     songs = parse_playlist(playlist)
-    
     n = min(n, len(songs))
-    
     selected_songs = random.sample(songs, n)
-    
     total_duration = sum(float(time) for _, time in selected_songs)
-    
     total_duration_timedelta = timedelta(minutes=int(total_duration), seconds=int((total_duration % 1) * 60))
-    
     return total_duration_timedelta
 
 total_time_c = get_duration(playlist_c, 3)
